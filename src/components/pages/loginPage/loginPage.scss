@@ -1,0 +1,22 @@
+
+.loginPage {
+    display: flex;
+    justify-content: center;
+    &__sendForm {
+        margin-top: 200px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        box-shadow: 0px 0px 10px black;
+        width: 350px;
+        height: 450px;
+        flex-direction: column;
+    }
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+    &__title {
+        font-size: 30px;
+    }
+}
