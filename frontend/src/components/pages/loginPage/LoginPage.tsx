@@ -3,7 +3,6 @@ import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import LoadingButton from '@mui/lab/LoadingButton';
 import SendIcon from '@mui/icons-material/Send';
-import Switch from '@mui/material/Switch';
 import { useState } from "react";
 
 import './loginPage.scss';
