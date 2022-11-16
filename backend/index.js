@@ -1,5 +1,9 @@
 const express = require('express');
 const userRouter = require('./routes/userRoutes');
+const session = require('express-session');
+const FileStore = require('session-file-store')(session);
+const passport = require('passport');
+
 const PORT = 8001;
 
 const app = express();
@@ -24,7 +28,22 @@ app.use(function (req, res, next) {
 });
 
 app.use(express.json());
-app.use('/api', userRouter);
+app.use(express.urlencoded({extended: false}));
+
+app.use(
+    session({
+        secret: 'vlad',
+        store: new FileStore(),
+        cookie: {
+            path: '/',
+            httpOnly: true,
+            maxAge: 60 * 60 * 1000,
+        },
+        resave: false,
+        saveUninitialized: false
+    })
+)
+app.use('/user', userRouter);
 
 
 app.listen(PORT, () => {

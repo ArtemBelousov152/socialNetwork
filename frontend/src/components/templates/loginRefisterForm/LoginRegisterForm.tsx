@@ -3,48 +3,47 @@ import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import LoadingButton from '@mui/lab/LoadingButton';
 import SendIcon from '@mui/icons-material/Send';
-import { useState } from "react";
 
-import './loginPage.scss';
+import './loginRegisterForm.scss';
 
-const LoginPage: React.FC = () => {
-    const [loading, setLoading] = useState(false);
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+interface ILoginRegisterFormProps {
+    email: string;
+    password: string;
+    loading: boolean;
+    title: string;
+    btnText: string;
+    setEmail: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    setPassword: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    clickHandler: () => void;
+}
 
-    const clickHandler = () => {
-        setLoading(true);
-        setTimeout(() => {
-            setLoading(false);
-        }, 1000)
-    }
-
+const LoginRegisterForm: React.FC<ILoginRegisterFormProps> = ({email, password, loading, title, btnText, setEmail, setPassword, clickHandler} ) => {
     return (
-            <div className="loginPage">
+        <div className="loginRegisterForm">
                 <Box
-                    className="loginPage__sendForm"
+                    className="loginRegisterForm__sendForm"
                     component='form'
                     autoComplete="off"
                     >
-                    <h1 className="loginPage__title">Регистрация</h1>
-                    <div className="loginPage__wrapper">
+                    <h1 className="loginRegisterForm__title">{title}</h1>
+                    <div className="loginRegisterForm__wrapper">
                         <TextField
                             sx={{mb: 4}}
-                            placeholder="Введите имя"
+                            placeholder="Введите почту"
                             label="Почта"
                             name="email"
                             type='email'
                             value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            onChange={setEmail}
                             />
                         <TextField
                             sx={{mb: 4}}
-                            placeholder="Введите имя"
+                            placeholder="Введите пароль"
                             type='password'
                             label="Пароль"
                             name="password"
                             value={password}
-                            onChange={(e) => setPassword(e.target.value)}
+                            onChange={setPassword}
                             />
                         <LoadingButton
                             endIcon={<SendIcon/>}
@@ -53,7 +52,7 @@ const LoginPage: React.FC = () => {
                             loadingPosition="end"
                             onClick={clickHandler}
                             >
-                            Отправить
+                            {btnText}
                         </LoadingButton>
                     </div>
                 </Box>
@@ -61,4 +60,4 @@ const LoginPage: React.FC = () => {
     )
 }
 
-export default LoginPage;
+export default LoginRegisterForm;

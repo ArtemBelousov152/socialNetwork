@@ -1,5 +1,9 @@
 {
     "users": [
-        
+        {
+            "email": "someemail@mail.ru",
+            "password": "1234",
+            "name": "Artem"
+        }
     ]
 }
