@@ -1,9 +1,1 @@
-{
-    "users": [
-        {
-            "email": "someemail@mail.ru",
-            "password": "1234",
-            "name": "Artem"
-        }
-    ]
-}
+{"users":[{"id":"1","email":"someemail@mail.ru","password":"1234","name":"Artem"},{"id":"74f14baa-46ec-4b85-ab34-633e6bdc23d0","email":"email@mail.ru","password":12312,"name":""}]}

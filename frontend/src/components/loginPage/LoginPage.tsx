@@ -1,5 +1,6 @@
 import LoginRegisterForm from "../templates/loginRefisterForm/LoginRegisterForm";
 import { useState } from "react";
+import axios from "axios";
 
 const LoginPage = () => {
     const [loading, setLoading] = useState<boolean>(false);
@@ -8,9 +9,14 @@ const LoginPage = () => {
 
     const clickHandler = () => {
         setLoading(true);
-        setTimeout(() => {
-            setLoading(false);
-        }, 1000)
+
+        axios.post('http://localhost:8001/user/getuser', {
+            email,
+            password
+        })
+        .then((res) => console.log(res))
+
+        setLoading(false)
     }
 
     return (

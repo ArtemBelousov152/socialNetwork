@@ -17,13 +17,15 @@ const StartPage: React.FC = () => {
             <nav className="startPage__nav">
                 <ul className="startPage__linkList">
                     <li className="startPage__link">
-                        <Link to="/">
+                        <Link className="startPage__registerLink" to="/">
                             <CloudUploadIcon color="info"/>
+                            <div className="startPage__registerText">Войти</div>
                         </Link>
                     </li>
                     <li>
-                        <Link to="/login">
+                        <Link className="startPage__loginLink" to="/login">
                             <LoginIcon color="info"/>
+                            <div className="startPage__loginText">Регистрация</div>
                         </Link>
                     </li>
                 </ul>

@@ -1,11 +1,21 @@
 .startPage {
     &__nav {
+        margin-top: 30px;
         display: flex;
         justify-content: center;
     }
     &__linkList {
-        width: 100px;
+        width: 200px;
         display: flex;
         justify-content: space-between;
+    }
+    &__registerLink, &__loginLink {
+        text-decoration: none;
+        color: black;
+        font-size: 18px;
+        width: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 }
